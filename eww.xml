@@ -1,0 +1,98 @@
+<eww>
+  <definitions>
+    <def name="clock">
+      <layout halign="center" space-evenly="false">
+        {{my_time}}
+      </layout>
+    </def>
+    <def name="volume">
+      <layout halign="center" space-evenly="false">
+        {{my_volume}}
+      </layout>  
+    </def>
+    <def name="test">
+    <layout orientation="v" space-evenly="false">
+      <layout orientation="h">
+        <layout class="cok" halign="end"><clock class="clock" my_time="{{time}}"/></layout>
+        <layout class="cokm" halign="start"><clock class="clockM" my_time="{{timeM}}"/></layout>
+      </layout>
+      <layout orientation="v" class="date">
+        {{date}}
+      </layout>
+      <layout orientation="v">
+        <layout class="seperator" halign="center">──────Controls──────</layout>
+      </layout>
+      <layout orientation="h" class="volume" space-evenly="false" halign="center">
+        <layout class="head"></layout>
+        <slider min="0" max="101" value="{{volume2}}" onchange="amixer -D pulse sset Master {}%"/>
+      </layout>
+      <layout orientation="h" class="brightness" halign="center" space-evenly="false">
+        <layout class="lamp"></layout>
+        <slider min="0.20" max="2" value="{{bright}}" onchange="xrandr --output VGA-0 --brightness {}%"/>
+      </layout>
+      <layout orientation="v">
+        <layout class="seperator" halign="center">─────Workspaces─────</layout>
+      </layout>
+      <layout orientation="h" class="workspaces" halign="center" space-evenly="false">
+        <button onclick="wmctrl -s 0"></button>  
+        <button onclick="wmctrl -s 1"></button>  
+        <button onclick="wmctrl -s 2"></button>  
+        <button onclick="wmctrl -s 3"></button>  
+        <button onclick="wmctrl -s 4"></button>  
+        <button onclick="wmctrl -s 5"></button>  
+        <button onclick="wmctrl -s 6"></button>  
+        <button onclick="wmctrl -s 7"></button>  
+        <button onclick="wmctrl -s 8"></button>  
+      </layout>   
+      <layout orientation="v">
+        <layout class="seperator" halign="center">────────────────────</layout>
+      </layout>
+<!--    <layout orientation="h" class="storage">
+        <layout class="storage-text">{{file}} / 100% Total used</layout>
+</layout> -->
+      <layout orientation="h" space-evenly="false" class="profile">
+        <layout orientation="h" space-evenly="false">
+          <layout class="pfp"></layout>
+        </layout>
+        <layout orientation="v" space-evenly="false"> 
+          <layout class="pfptxt" valign="top">Swexti</layout>
+          <layout class="subpfptxt" halign="start">Bread</layout>
+        </layout>
+      </layout>
+      <layout orientation="h" space-evenly="false" halign="center" class="music">
+        <layout orientation="v" space-evenly="false" class="playing" valign="center" halign="center">
+          <layout class="play"> Currently Playing:</layout>
+          <layout class="music">{{music}}</layout>
+        <layout orientation="h" halign="center" class="musicbtn" space-evenly="false">
+          <button onclick="playerctl previous"></button> 
+          <button onclick="playerctl pause"></button>
+          <button onclick="playerctl play"></button>
+          <button onclick="playerctl next"></button>
+        </layout>
+        </layout>
+      </layout>
+    </layout>
+    </def>
+  </definitions>
+
+  <variables>
+    <var name="foo">test</var>
+    <script-var name="time" interval="1s">date +%H</script-var>
+    <script-var name="timeM" interval="1s">date +%M</script-var>
+    <script-var name="volume" interval="3ms">amixer -D pulse sget Master | grep 'Left:' | awk -F'[][]' '{ print $2 }'</script-var>
+    <script-var name="volume2" interval="3ms">amixer -D pulse sget Master | grep 'Left:' | awk -F'[][]' '{ print $2 }' | tr -d '%'</script-var>
+    <script-var name="date" interval="10m">date +%A,\ %B\ %d,\ %Y</script-var>
+    <script-var name="bright" interval="1ms">xrandr --verbose | grep -i brightness | tr -d 'Brightness: ' | tr -d [:blank:]</script-var>
+    <script-var name="file" interval="10s">df | awk '{if (NR&gt;3) if (NR&lt;2) {print $5}}' </script-var>
+    <script-var name="music" interval="5s">playerctl metadata --format '{{ artist }} - {{ title }}'</script-var>
+  </variables>
+  <windows>
+    <window name="main_window">
+      <size x="250" y="500" />
+      <pos x="1400" y="250" />
+      <widget>
+    <test ree="test" />
+      </widget>
+    </window>
+  </windows>
+</eww>

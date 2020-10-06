@@ -1,0 +1,150 @@
+
+button {
+	background-color: #ebdbb2;
+}
+.workspaces button {
+  all: unset;
+  color: #B16286;
+  padding: 3px;
+  margin: 3px;
+  font-size: 15px;
+}
+.workspaces button:hover {
+  color: #8F3F71;
+}
+.workspaces button:active {
+  color: #F2E4BE;
+}
+window {
+  background-color: #F2E4BE;
+/*  background-color: #000000; */
+	color: #3C3836;
+  font-family: JetBrains Mono;
+}
+
+.seperator {
+	font-size: 18px;
+}
+.cok {
+	font-size: 40px;
+	padding-left: 10px;
+}
+
+.brightness scale trough slider {
+  all: unset;
+}
+.brightness {
+  margin-top: 5px;
+}
+.brightness scale trough {
+  all: unset;
+  background-color: #BDAE93;
+  min-height: 20px;
+  min-width: 130px;
+  border-radius: 50px;
+}
+.brightness scale trough highlight {
+  all: unset;
+  background-color: #689D6A;
+  color: #000000;
+  border-radius: 10px;
+} 
+.cokm {
+	font-size: 40px;
+	color: #CC241D;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	padding-right: 10px;
+}
+.volume scale trough {
+	all: unset;
+	background-color: #BDAE93;
+	border-radius: 50px;
+	min-height: 20px;
+	min-width: 130px;
+}
+.text {
+  color: #ff00ff;
+  margin-left: 3rem;
+}
+.volume scale trough slider {
+	all: unset;
+}
+.volume scale trough highlight {
+	all: unset;
+	background-color: #689D6A;
+	color: #000000;
+	border-radius: 10px;
+}
+.head {
+  background-image: url("/home/swexti/Pictures/head/heead.png");
+  background-repeat: no-repeat;
+  background-size: 35px;
+  padding-left: 40px;
+  margin-top: 7px;
+  margin-left: 5px;
+}
+.lamp {
+  background-image: url("/home/swexti/Pictures/head/sun.png");
+  background-repeat: no-repeat;
+  background-size: 45px;
+  padding-left: 40px;
+  margin-top: 5px;
+  padding-right: 5px;
+}
+.date {
+  font-size: 13.3333333px;
+  color: #458588;
+}
+.profile {
+  background-color: #BDAE93;
+  border-radius: 10px;
+  margin: 10px;
+}
+.pfp {
+  background-image: url("/home/swexti/Pictures/4cat.jpg");
+  background-repeat: no-repeat;
+  background-size: 60px;
+  min-height: 60px;
+  min-width: 60px;
+  margin: 10px;
+  border-radius: 10px;
+}
+.pfptxt {
+  font-weight: Bold;
+  color: #458588;
+  margin-right: 40px;
+  margin-top: 20px;
+}
+.subpfptxt {
+  font-size: 12px;
+  margin-top: 0px;
+  margin-right: 40px;
+}
+// make it cool
+.music {
+  background-color: #BDAE93;
+  border-radius: 10px;
+  margin: 10px;
+  min-width: 220px;
+}
+// make it cool
+.play {
+  font-family: DejaVuSansMono Nerd Font;
+  color: #79740E;
+  margin-top: 5px;
+}
+//make the music button cool
+.musicbtn button {
+  all: unset;
+  padding: 5px;
+  margin: 5px;
+  color: #3C3836;
+}
+.music button:hover {
+  color: #7C6F64;
+}
+/*
+* {
+	border: 1px solid #00ff00;
+}*/
